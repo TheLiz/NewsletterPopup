@@ -1,0 +1,403 @@
+/* NEWSLETTER POPUP =============== *\
+ * CONTENTS
+ *  #FONTS
+ *  #VARIABLES
+ *  #BASE
+ *  #UTILITIES
+ *  #LAYOUT
+ *  #COMPONENTS
+ *  #THEMES
+ *  #TRUMPS
+\* ================================ */
+
+/* #FONTS ========================= *\
+ *    WORK SANS
+\* ================================ */
+/* work-sans-regular - latin */
+@font-face {
+  font-family: 'Work Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../assets/fonts/work-sans-v18-latin-regular.eot'); /* IE9 Compat Modes */
+  src: local('Work Sans Regular'),
+       url('../assets/fonts/work-sans-v18-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../assets/fonts/work-sans-v18-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../assets/fonts/work-sans-v18-latin-regular.woff') format('woff'), /* Modern Browsers */
+       url('../assets/fonts/work-sans-v18-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('../assets/fonts/work-sans-v18-latin-regular.svg#WorkSans') format('svg'); /* Legacy iOS */
+}
+
+/* work-sans-700 - latin */
+@font-face {
+  font-family: 'Work Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('../assets/fonts/work-sans-v18-latin-700.eot'); /* IE9 Compat Modes */
+  src: local('Work Sans Bold'),
+       url('../assets/fonts/work-sans-v18-latin-700.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../assets/fonts/work-sans-v18-latin-700.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../assets/fonts/work-sans-v18-latin-700.woff') format('woff'), /* Modern Browsers */
+       url('../assets/fonts/work-sans-v18-latin-700.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('../assets/fonts/work-sans-v18-latin-700.svg#WorkSans') format('svg'); /* Legacy iOS */
+}
+
+/* work-sans-italic - latin */
+@font-face {
+  font-family: 'Work Sans';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../assets/fonts/work-sans-v18-latin-italic.eot'); /* IE9 Compat Modes */
+  src: local('Work Sans Italic'),
+       url('../assets/fonts/work-sans-v18-latin-italic.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../assets/fonts/work-sans-v18-latin-italic.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../assets/fonts/work-sans-v18-latin-italic.woff') format('woff'), /* Modern Browsers */
+       url('../assets/fonts/work-sans-v18-latin-italic.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('../assets/fonts/work-sans-v18-latin-italic.svg#WorkSans') format('svg'); /* Legacy iOS */
+}
+
+/* work-sans-700italic - latin */
+@font-face {
+  font-family: 'Work Sans';
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+  src: url('../assets/fonts/work-sans-v18-latin-700italic.eot'); /* IE9 Compat Modes */
+  src: local('Work Sans Bold Italic'),
+       url('../assets/fonts/work-sans-v18-latin-700italic.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../assets/fonts/work-sans-v18-latin-700italic.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../assets/fonts/work-sans-v18-latin-700italic.woff') format('woff'), /* Modern Browsers */
+       url('../assets/fonts/work-sans-v18-latin-700italic.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('../assets/fonts/work-sans-v18-latin-700italic.svg#WorkSans') format('svg'); /* Legacy iOS */
+}
+
+
+
+
+
+/* #VARIABLES ===================== *\
+\* ================================ */
+:root {
+  --border__base: .125rem solid;
+  --border-radius: .313rem;
+
+  --color__white: #fff;
+  --color__smokey-black: #111;
+  --color__battleship-grey: #555;
+  --color__blue-ryb: #0D40E7;
+
+  --focus__outline: .25rem solid transparent;
+  --focus__ring: 0 0 0 .25rem;
+
+  --font__stack: 'Work Sans', Verdana, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+  --fx__ease-in-out: all 220ms ease-in-out;
+
+  --gutter: 1rem;
+
+  --leading__inputs: 1.1;
+  --leading__body: 1.618;
+  --leading__headings: 1.2;
+
+  --m__element: 0 0 1.25rem 0;
+
+  --p__button: .5em 1em;
+  --p__input: .25em 0;
+  --p__layout: 4em;
+  --p__text: 1.5em;
+
+  --text__base: 16px;
+  --text__preset-1: 2.488rem;
+  --text__preset-2: 2.074rem;
+  --text__preset-3: 1.728rem;
+  --text__preset-4: 1.44rem;
+  --text__preset-5: 1.2rem;
+  --text__preset-6: 1rem;
+  --text__preset-7: .875rem;
+}
+
+@media (max-width: 64rem) {
+  :root {--p__layout: 4em 2em;}
+}
+
+@media (max-width: 36rem) {
+  :root {--p__layout: 2em;}
+}
+
+
+
+
+
+/* #BASE ========================== *\
+\* ================================ */
+*, *::after, *::before {box-sizing: border-box;}
+
+[hidden] {display: none;}
+
+html {font-size: var(--text__base);}
+
+body {
+  background: rgb(238,174,202);
+  background: -moz-radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+  background: -webkit-radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+  background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#eeaeca",endColorstr="#94bbe9",GradientType=1); 
+  color: var(--color__battleship-grey);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: var(--font__stack);
+  font-size: var(--text__preset-6);
+  line-height: var(--leading__body);
+  margin: 0;
+  min-height: 100vh;
+  padding: var(--p__layout);
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+}
+
+@media (max-width: 36rem) {
+  body {padding: 0;}
+}
+
+a {transition: var(--fx__ease-in-out);}
+
+a:not([class]) {text-decoration: underline;}
+  a:hover, a:focus {text-decoration: none;}
+
+  a:focus {
+    box-shadow: var(--focus__ring) var(--color__blue-ryb);
+    outline: var(--focus__outline);
+  }
+
+blockquote {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  margin: var(--m__element);
+  text-align: center;
+}
+  blockquote .citation {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: var(--gutter);
+    margin: var(--m__element);
+  }
+  
+  blockquote .quote {
+    margin: 0;
+    order: 2;
+  }
+
+    blockquote cite {
+      display: block;
+      font-style: normal;
+      text-align: left;
+    }
+      blockquote cite h2 {
+        color: var(--color__smokey-black);
+        font-size: var(--text__preset-6);
+        margin: 0 0 .25rem 0;
+      }
+
+      blockquote cite p {margin: 0;}
+
+button, input, select, textarea {font: inherit;}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+  line-height: var(--leading__headings);
+  margin: var(--m__element);
+}
+
+h1 {font-size: var(--text__preset-1);}
+h2 {font-size: var(--text__preset-2);}
+h3 {font-size: var(--text__preset-3);}
+h4 {font-size: var(--text__preset-4);}
+h5 {font-size: var(--text__preset-5);}
+h6 {font-size: var(--text__preset-6);}
+
+img {
+  display: block;
+  height: auto;
+  max-width: 100%;
+}
+
+input {
+  border: var(--border__base) var(--color__battleship-grey);
+  border-radius: var(--border-radius);
+  background-color: var(--color__white);
+  color: var(--color__smokey-black);
+  font-size: var(--text__preset-6);
+  line-height: var(--leading__inputs);
+  min-height: 2.75rem;
+  padding: var(--p__input);
+  width: 100%;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin: 0 0 .313rem 0;
+}
+
+p {
+  -webkit-hyphens:auto;
+  -webkit-hyphenate-limit-before:3;
+  -webkit-hyphenate-limit-after:3;
+  -webkit-hyphenate-limit-chars:6 3 3;
+  -webkit-hyphenate-limit-lines:2;
+  -webkit-hyphenate-limit-last:always;
+  -webkit-hyphenate-limit-zone:8%;
+  -moz-hyphens:auto;
+  -moz-hyphenate-limit-chars:6 3 3;
+  -moz-hyphenate-limit-lines:2;
+  -moz-hyphenate-limit-last:always;
+  -moz-hyphenate-limit-zone:8%;
+  -ms-hyphens:auto;
+  -ms-hyphenate-limit-chars:6 3 3;
+  -ms-hyphenate-limit-lines:2;
+  -ms-hyphenate-limit-last:always;
+  -ms-hyphenate-limit-zone:8%;
+  hyphens:auto;
+  hyphenate-limit-chars:6 3 3;
+  hyphenate-limit-lines:2;
+  hyphenate-limit-last:always;
+  hyphenate-limit-zone:8%;
+  margin: var(--m__element);
+}
+
+svg {fill: currentColor;}
+
+
+
+
+
+/* #UTILITIES ===================== *\
+\* ================================ */
+.input__group {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  width: 100%;
+}
+  .input__group > input {
+    border-top-left-radius: .25rem;
+    border-bottom-left-radius: .25rem;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    flex: 1 1 auto;
+    min-width: 0;
+    position: relative;
+    width: 1%;
+  }
+
+  .input__group > .button {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    margin-left: -1px;
+    position: relative;
+    z-index: 2;
+  }
+  
+
+
+
+
+
+/* #LAYOUT ======================== *\
+\* ================================ */
+
+
+
+
+
+
+
+/* #COMPONENTS ==================== *\
+\* ================================ */
+
+.button {
+  border: none;
+  border-radius: var(--border-radius);
+  background-color: var(--color__blue-ryb);
+  color: var(--color__white);
+  font-size: var(--text__preset-6);
+  font-weight: bold;
+  line-height: var(--leading__inputs);
+  min-height: 2.75rem;
+  padding: var(--p__button);
+  display: inline-flex;
+  align-items: center;
+  text-align: center;
+  transition: var(--fx__ease-in-out);
+}
+  .button:hover,
+  .button:focus {
+    background-color: var(--color__smokey-black);
+    color: var(--color__white);
+  }
+    .button:focus {
+      box-shadow: var(--focus__ring) var(--color__blue-ryb);
+      outline: var(--focus__outline);
+    }
+
+
+.modal {
+  margin: auto;
+  max-width: 28.125rem;
+}
+  .modal__header {
+    background-color: var(--color__blue-ryb);
+    background-image: url(../assets/img/bg-pattern.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: .625rem .625rem 0 0;
+    color: var(--color__white);
+    padding: var(--p__layout);
+    text-align: center;
+  }
+    .modal__header h1 {
+      font-size: var(--text__preset-3);
+      margin: 0;
+    }
+
+    .modal__body {
+      background-color: var(--color__white);
+      color: var(--color__battleship-grey);
+      padding: var(--p__text);
+    }
+      .modal__body form p {margin: 1.25rem 0 0 0;}
+
+    .modal__footer {
+      background-color: var(--color__white);
+      border-radius: 0 0 .625rem .625rem;
+      color: var(--color__battleship-grey);
+      padding: var(--p__text);
+    }
+
+@media (max-width: 36rem) {
+  .modal__header, .modal__footer {border-radius: 0;}
+}
+
+
+
+
+
+
+/* #THEMES ======================== *\
+\* ================================ */
+
+
+
+
+
+
+
+/* #TRUMPS ======================== *\
+\* ================================ */
